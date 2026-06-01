@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Marah Al Hamoud | Digital Alchemist</title>
-    <!-- Google Fonts: Modern & Clean -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (Sharp & Solid for modern look) -->
+    <title>Marah Al Hamoud | Software Engineer Portfolio</title>
+    <!-- Google Fonts: Modern & Elegant -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS -->
+    <!-- AOS Scroll Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
@@ -19,67 +18,27 @@
         }
 
         :root {
-            --bg-deep: #05050A;
-            --surface-glass: rgba(20, 20, 35, 0.65);
-            --neon-cyan: #00F0FF;
-            --neon-lime: #CCFF00;
-            --neon-purple: #C084FC;
-            --glow-pink: #FF2D95;
-            --text-bright: #FFFFFF;
-            --text-dim: #B0B0C0;
-            --border-soft: rgba(0, 240, 255, 0.3);
+            --bg-cream: #FFF9F0;
+            --bg-warm: #FFF5E6;
+            --gold-rose: #E8A87C;
+            --coral: #FF6B6B;
+            --teal: #4ECDC4;
+            --text-dark: #2D3E50;
+            --text-muted: #6C7A8E;
+            --border-glass: rgba(232, 168, 124, 0.3);
+            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-deep);
-            color: var(--text-bright);
-            overflow-x: hidden;
+            background: linear-gradient(145deg, var(--bg-cream) 0%, var(--bg-warm) 100%);
+            color: var(--text-dark);
             line-height: 1.5;
+            overflow-x: hidden;
         }
 
-        /* Animated Grid Background */
-        .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Floating Orbs */
-        .orb-1, .orb-2 {
-            position: fixed;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: 0;
-            animation: floatGlow 20s infinite alternate ease-in-out;
-        }
-        .orb-1 {
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.25), rgba(192, 132, 252, 0.1));
-            top: -20%;
-            right: -20%;
-        }
-        .orb-2 {
-            background: radial-gradient(circle, rgba(255, 45, 149, 0.2), rgba(204, 255, 0, 0.1));
-            bottom: -20%;
-            left: -20%;
-            animation-duration: 25s;
-        }
-        @keyframes floatGlow {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
-            100% { transform: translate(5%, 5%) scale(1.2); opacity: 0.9; }
-        }
-
-        /* Custom Cursor - Smooth */
+        /* Custom Cursor */
         .cursor-dot, .cursor-ring {
             position: fixed;
             border-radius: 50%;
@@ -88,47 +47,46 @@
             transition: transform 0.08s linear;
         }
         .cursor-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--neon-cyan);
-            box-shadow: 0 0 8px var(--neon-cyan);
+            width: 5px;
+            height: 5px;
+            background: var(--coral);
+            box-shadow: 0 0 8px var(--coral);
         }
         .cursor-ring {
-            width: 32px;
-            height: 32px;
-            border: 1.5px solid var(--neon-lime);
-            transition: transform 0.15s ease, width 0.2s, height 0.2s;
+            width: 38px;
+            height: 38px;
+            border: 1.5px solid var(--gold-rose);
+            transition: 0.15s;
         }
 
         .container {
             max-width: 1300px;
             margin: 0 auto;
             padding: 0 40px;
-            position: relative;
-            z-index: 2;
         }
 
         /* Glass Navbar */
         .navbar {
-            position: fixed;
+            position: sticky;
+            top: 0;
             width: 100%;
+            background: rgba(255, 249, 240, 0.85);
+            backdrop-filter: blur(18px);
             z-index: 100;
-            padding: 20px 0;
-            background: rgba(5, 5, 10, 0.7);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-soft);
-            transition: 0.3s;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-glass);
         }
-        .nav-container {
+        .nav-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         .logo {
-            font-family: 'Clash Display', monospace;
-            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-lime));
+            background: linear-gradient(135deg, var(--gold-rose), var(--coral));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -136,378 +94,279 @@
         }
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 2rem;
         }
         .nav-links a {
-            color: var(--text-bright);
+            color: var(--text-dark);
             text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            padding: 8px 0;
-            transition: 0.2s;
-            border-bottom: 2px solid transparent;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: var(--transition);
         }
         .nav-links a:hover {
-            color: var(--neon-cyan);
-            border-bottom-color: var(--neon-cyan);
-            text-shadow: 0 0 5px var(--neon-cyan);
+            color: var(--coral);
+        }
+        .nav-icons {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+        .nav-icons i {
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        .nav-icons i:hover {
+            color: var(--coral);
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 100px;
+            padding: 100px 0 60px;
         }
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1fr 0.8fr;
             gap: 60px;
             align-items: center;
         }
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(0, 240, 255, 0.12);
-            backdrop-filter: blur(5px);
-            padding: 8px 20px;
+            display: inline-block;
+            background: rgba(232, 168, 124, 0.15);
+            padding: 6px 16px;
             border-radius: 60px;
             font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 2px;
-            color: var(--neon-cyan);
-            border: 0.5px solid var(--neon-cyan);
-            margin-bottom: 25px;
+            color: var(--coral);
+            margin-bottom: 20px;
         }
         .hero h1 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: 4.8rem;
-            line-height: 1.1;
-            margin-bottom: 25px;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
         }
         .hero h1 span {
-            background: linear-gradient(125deg, var(--neon-lime), var(--neon-cyan));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--coral);
         }
         .hero p {
-            color: var(--text-dim);
+            color: var(--text-muted);
+            margin-bottom: 30px;
             max-width: 500px;
-            margin-bottom: 35px;
-            font-size: 1rem;
         }
         .btn-group {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
         .btn {
             padding: 12px 28px;
-            border-radius: 60px;
-            font-weight: 700;
+            border-radius: 40px;
+            font-weight: 600;
             font-size: 0.8rem;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            transition: var(--transition);
         }
         .btn-primary {
-            background: linear-gradient(135deg, var(--neon-cyan), #0088AA);
-            color: #000;
+            background: var(--coral);
+            color: white;
             border: none;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
         }
         .btn-primary:hover {
+            background: var(--gold-rose);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.5);
-            background: linear-gradient(135deg, var(--neon-lime), var(--neon-cyan));
         }
         .btn-outline {
-            border: 1.5px solid var(--neon-cyan);
-            color: var(--neon-cyan);
+            border: 1px solid var(--coral);
+            color: var(--coral);
             background: transparent;
         }
         .btn-outline:hover {
-            background: var(--neon-cyan);
-            color: #000;
+            background: var(--coral);
+            color: white;
             transform: translateY(-3px);
-            box-shadow: 0 0 15px var(--neon-cyan);
         }
-
-        /* Stats Cards - Fully Rounded */
-        .stat-cards {
+        .stats {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2,1fr);
             gap: 20px;
         }
-        .stat-item {
-            background: var(--surface-glass);
-            backdrop-filter: blur(12px);
+        .stat-card {
+            background: white;
+            border-radius: 24px;
             padding: 20px;
-            border-radius: 28px;
-            border: 1px solid var(--border-soft);
-            transition: 0.3s;
             text-align: center;
-        }
-        .stat-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--neon-lime);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-glass);
         }
         .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            font-family: 'Clash Display', monospace;
-            color: var(--neon-lime);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--coral);
         }
 
-        /* Skills - Interactive Rounded Icons */
+        /* Section Titles */
         .section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
         .section-title {
-            font-size: 3rem;
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
             margin-bottom: 15px;
-            font-family: 'Clash Display', sans-serif;
         }
         .section-sub {
+            text-align: center;
+            color: var(--coral);
             text-transform: uppercase;
-            letter-spacing: 5px;
-            color: var(--neon-cyan);
+            letter-spacing: 3px;
             font-size: 0.7rem;
-            margin-bottom: 15px;
-        }
-        .skills-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 50px;
-        }
-        .skill-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(0, 240, 255, 0.05);
-            border: 1px solid var(--border-soft);
-            padding: 12px 28px;
-            border-radius: 80px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: default;
-            backdrop-filter: blur(5px);
-        }
-        .skill-tag i {
-            font-size: 1.2rem;
-            transition: 0.2s;
-        }
-        .skill-tag:hover {
-            transform: translateY(-5px) scale(1.02);
-            background: rgba(0, 240, 255, 0.2);
-            border-color: var(--neon-lime);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-        }
-        .skill-tag:hover i {
-            transform: rotate(10deg) scale(1.1);
-            color: var(--neon-lime);
+            margin-bottom: 50px;
         }
 
-        /* Projects - Asymmetric but smooth */
+        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 35px;
         }
         .project-card {
-            background: var(--surface-glass);
-            backdrop-filter: blur(12px);
-            border-radius: 32px;
-            border: 1px solid var(--border-soft);
+            background: white;
+            border-radius: 28px;
             overflow: hidden;
-            transition: 0.4s;
-        }
-        .project-card:nth-child(2) {
-            transform: translateY(30px);
+            transition: var(--transition);
+            border: 1px solid var(--border-glass);
+            box-shadow: var(--shadow);
         }
         .project-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--neon-lime);
-            box-shadow: 0 25px 35px -15px rgba(0,0,0,0.6);
+            transform: translateY(-8px);
+            border-color: var(--coral);
         }
         .project-img {
-            height: 230px;
+            height: 200px;
             overflow: hidden;
         }
         .project-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.6s;
+            transition: transform 0.4s;
         }
         .project-card:hover .project-img img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         .project-info {
-            padding: 28px;
+            padding: 24px;
         }
         .project-info h3 {
-            font-size: 1.6rem;
-            font-family: 'Clash Display', sans-serif;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
         }
-        /* Rounded Interactive Buttons */
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
         .project-links {
-            margin-top: 25px;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
         .project-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 240, 255, 0.1);
-            padding: 8px 18px;
-            border-radius: 60px;
+            color: var(--coral);
             text-decoration: none;
-            color: var(--neon-cyan);
             font-weight: 600;
             font-size: 0.8rem;
-            border: 1px solid var(--border-soft);
-            transition: 0.25s;
+            transition: 0.2s;
         }
         .project-links a:hover {
-            background: var(--neon-cyan);
-            color: #000;
-            border-color: var(--neon-cyan);
-            transform: translateX(6px);
-            box-shadow: 0 0 12px var(--neon-cyan);
+            color: var(--gold-rose);
         }
 
-        /* Contact Glass Card - Soft edges */
-        .contact-card {
-            background: rgba(10, 10, 20, 0.8);
-            backdrop-filter: blur(16px);
-            border-radius: 48px;
-            border: 1px solid var(--neon-cyan);
-            padding: 50px;
+        /* Contact & Footer */
+        .contact-section {
             text-align: center;
-            max-width: 750px;
-            margin: 0 auto;
-            transition: 0.3s;
+            background: rgba(255,255,255,0.5);
+            border-radius: 48px;
+            margin: 40px 0;
+            padding: 50px;
         }
-        .contact-card:hover {
-            box-shadow: 0 0 35px rgba(0, 240, 255, 0.2);
+        .contact-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
         }
         .contact-icons {
             display: flex;
             justify-content: center;
             gap: 25px;
+            margin-top: 25px;
             flex-wrap: wrap;
-            margin-top: 35px;
         }
         .contact-icons a {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255,255,255,0.03);
-            padding: 12px 28px;
-            border-radius: 80px;
+            color: var(--text-dark);
+            font-size: 1rem;
             text-decoration: none;
-            color: var(--text-bright);
-            font-weight: 500;
-            border: 1px solid var(--border-soft);
-            transition: 0.25s;
-        }
-        .contact-icons a i {
-            font-size: 1.2rem;
             transition: 0.2s;
         }
         .contact-icons a:hover {
-            background: var(--neon-cyan);
-            color: #000;
-            transform: translateY(-4px);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 8px 20px rgba(0, 240, 255, 0.4);
+            color: var(--coral);
         }
-        .contact-icons a:hover i {
-            transform: scale(1.2) rotate(5deg);
-        }
-
         .footer {
             text-align: center;
             padding: 40px 0;
-            border-top: 1px solid rgba(0, 240, 255, 0.2);
-            margin-top: 40px;
+            border-top: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            font-size: 0.8rem;
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; }
             .hero p { margin: 0 auto 30px; }
             .btn-group { justify-content: center; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .project-card:nth-child(2) { transform: none; }
+            .stats { max-width: 400px; margin: 30px auto 0; }
             .container { padding: 0 25px; }
-            .hero h1 { font-size: 3rem; }
+            .projects-grid { gap: 25px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
-<div class="grid-bg"></div>
-<div class="orb-1"></div>
-<div class="orb-2"></div>
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
 
-<nav class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="#" class="logo">MARAH//</a>
-        <ul class="nav-links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#skills">SKILLS</a></li>
-            <li><a href="#projects">WORK</a></li>
-            <li><a href="#contact">CONNECT</a></li>
-        </ul>
+<nav class="navbar">
+    <div class="container nav-flex">
+        <a href="#" class="logo">Marah Al Hamoud</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-icons">
+            <a href="https://github.com/MARAH-ALHAMOUD" target="_blank" style="color: inherit;"><i class="fab fa-github"></i></a>
+            <a href="mailto:marahalhamooud@gmail.com" style="color: inherit;"><i class="far fa-envelope"></i></a>
+        </div>
     </div>
 </nav>
 
 <section class="hero" id="home">
     <div class="container">
         <div class="hero-grid">
-            <div data-aos="fade-up">
-                <div class="badge"><i class="fa-regular fa-star"></i> CS GRADUATE // CREATIVE TECH</div>
-                <h1>Marah Al <span>Hamoud</span></h1>
-                <p>I design immersive digital experiences with clean code, C++ precision, and a love for futuristic aesthetics.</p>
+            <div data-aos="fade-right">
+                <div class="badge">✨ Computer Science Graduate ✨</div>
+                <h1>Marah <span>Al Hamoud</span></h1>
+                <p>Front-end developer with a passion for elegant design, clean code, and interactive web experiences.</p>
                 <div class="btn-group">
-                    <a href="#projects" class="btn btn-primary"><i class="fa-regular fa-eye"></i> Explore Work</a>
-                    <a href="#contact" class="btn btn-outline"><i class="fa-regular fa-comment"></i> Let's Talk</a>
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
-            <div class="stat-cards" data-aos="fade-left">
-                <div class="stat-item"><div class="stat-number">3+</div><div>Years Code</div></div>
-                <div class="stat-item"><div class="stat-number">8+</div><div>Projects</div></div>
-                <div class="stat-item"><div class="stat-number">C++</div><div>Core Logic</div></div>
-                <div class="stat-item"><div class="stat-number">React</div><div>Modern Stack</div></div>
+            <div class="stats" data-aos="fade-left">
+                <div class="stat-card"><div class="stat-number">4+</div><div>Projects Completed</div></div>
+                <div class="stat-card"><div class="stat-number">C++</div><div>Core Skill</div></div>
+                <div class="stat-card"><div class="stat-number">React</div><div>Learning</div></div>
+                <div class="stat-card"><div class="stat-number">2026</div><div>Graduate</div></div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="skills">
-    <div class="container">
-        <div class="section-sub">TECH STACK</div>
-        <h2 class="section-title">Languages & Tools</h2>
-        <div class="skills-cloud">
-            <div class="skill-tag"><i class="fa-brands fa-cplusplus"></i> C++</div>
-            <div class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5</div>
-            <div class="skill-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
-            <div class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</div>
-            <div class="skill-tag"><i class="fa-brands fa-react"></i> React.js</div>
-            <div class="skill-tag"><i class="fa-brands fa-python"></i> Python</div>
-            <div class="skill-tag"><i class="fa-solid fa-database"></i> SQL</div>
-            <div class="skill-tag"><i class="fa-brands fa-git-alt"></i> Git/GitHub</div>
         </div>
     </div>
 </section>
@@ -515,19 +374,55 @@
 <section class="section" id="projects">
     <div class="container">
         <div class="section-sub">PORTFOLIO</div>
-        <h2 class="section-title">Selected Projects</h2>
+        <h2 class="section-title">Featured Work</h2>
         <div class="projects-grid">
+            <!-- L'Étoile -->
             <div class="project-card" data-aos="fade-up">
-                <div class="project-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="L'Etoile"></div>
-                <div class="project-info"><h3>L'Étoile Fine Dining</h3><p>Luxury restaurant website with glassmorphism, interactive menu & AOS.</p><div class="project-links"><a href="https://marah-alhamoud.github.io/L-Etoile-Fine-Dining/" target="_blank"><i class="fa-regular fa-window-maximize"></i> Live Demo</a><a href="https://github.com/MARAH-ALHAMOUD/L-Etoile-Fine-Dining" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div></div>
+                <div class="project-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80" alt="L'Etoile Restaurant"></div>
+                <div class="project-info">
+                    <h3>L'Étoile - Fine Dining</h3>
+                    <p>Luxury restaurant website with glassmorphism, interactive menu, Swiper gallery, AOS animations, and reservation system.</p>
+                    <div class="project-links">
+                        <a href="https://marah-alhamoud.github.io/L-Etoile-Fine-Dining/" target="_blank">Live Demo →</a>
+                        <a href="https://github.com/MARAH-ALHAMOUD/L-Etoile-Fine-Dining" target="_blank">GitHub</a>
+                    </div>
+                </div>
             </div>
+            <!-- Horizon Travels -->
             <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="project-img"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80" alt="Horizon Travels"></div>
-                <div class="project-info"><h3>Horizon Travels</h3><p>Travel agency platform showcasing destinations and packages.</p><div class="project-links"><a href="https://marah-alhamoud.github.io/horizon-travels/" target="_blank"><i class="fa-regular fa-window-maximize"></i> Live Demo</a><a href="https://github.com/MARAH-ALHAMOUD/horizon-travels" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div></div>
+                <div class="project-img"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Horizon Travels"></div>
+                <div class="project-info">
+                    <h3>Horizon Travels</h3>
+                    <p>Travel agency website showcasing destinations, tour packages, and booking information with responsive design.</p>
+                    <div class="project-links">
+                        <a href="https://marah-alhamoud.github.io/horizon-travels/" target="_blank">Live Demo →</a>
+                        <a href="https://github.com/MARAH-ALHAMOUD/horizon-travels" target="_blank">GitHub</a>
+                    </div>
+                </div>
             </div>
+            <!-- LUMIÈRE Luxury -->
             <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="project-img"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80" alt="Portfolio"></div>
-                <div class="project-info"><h3>Cyber Portfolio</h3><p>Neon-infused brutalist portfolio with smooth cursor and interactive icons.</p><div class="project-links"><a href="https://github.com/MARAH-ALHAMOUD/Marah-ALHamoud.github.io" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div></div>
+                <div class="project-img"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" alt="LUMIERE Luxury Store"></div>
+                <div class="project-info">
+                    <h3>LUMIÈRE Luxury</h3>
+                    <p>Premium moissanite jewelry store with interactive shopping cart, category filters, live search, payment icons, and newsletter.</p>
+                    <div class="project-links">
+                        <a href="https://marah-alhamoud.github.io/lumiere-luxury/" target="_blank">Live Demo →</a>
+                        <a href="https://github.com/MARAH-ALHAMOUD/lumiere-luxury" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <!-- React Admin Dashboard -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Admin Dashboard"></div>
+                <div class="project-info">
+                    <h3>React Admin Dashboard</h3>
+                    <p>Modern admin panel built with React, React Router, Recharts, and JSON Server mock API. Features product management and sales chart.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/MARAH-ALHAMOUD/react-admin-dashboard" target="_blank">GitHub Repo →</a>
+                        <span style="color: var(--text-muted); font-size: 0.7rem;">(Live demo coming soon)</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -535,13 +430,13 @@
 
 <section class="section" id="contact">
     <div class="container">
-        <div class="contact-card" data-aos="zoom-in">
-            <h3 style="font-size: 2rem;">Let's Build Something <span style="color: var(--neon-lime);">Unforgettable</span></h3>
-            <p style="margin-top: 15px; color: var(--text-dim);">Available for freelance, collaborations, or tech conversations.</p>
+        <div class="contact-section" data-aos="zoom-in">
+            <h3>Let's Connect</h3>
+            <p style="color: var(--text-muted);">Open for freelance opportunities, collaborations, or just a chat.</p>
             <div class="contact-icons">
-                <a href="mailto:marahalhamooud@gmail.com"><i class="fa-regular fa-envelope"></i> marahalhamooud@gmail.com</a>
-                <a href="https://github.com/MARAH-ALHAMOUD" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:marahalhamooud@gmail.com"><i class="fas fa-envelope"></i> marahalhamooud@gmail.com</a>
+                <a href="https://github.com/MARAH-ALHAMOUD" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
     </div>
@@ -549,31 +444,22 @@
 
 <footer class="footer">
     <div class="container">
-        <p>📍 Cairo, Egypt — Open for remote worldwide</p>
-        <p style="margin-top: 12px; font-size: 0.75rem;">© 2026 Marah Al Hamoud — Designed with neon & interaction</p>
+        <p>📍 Cairo, Egypt | 💻 Available for remote work worldwide</p>
+        <p style="margin-top: 10px;">© 2026 Marah Al Hamoud — Designed with <i class="fas fa-heart" style="color: var(--coral);"></i></p>
     </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 800, once: true });
-
     // Custom Cursor
     const dot = document.querySelector('.cursor-dot');
     const ring = document.querySelector('.cursor-ring');
     document.addEventListener('mousemove', (e) => {
-        dot.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
-        ring.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+        dot.style.transform = `translate(${e.clientX - 2.5}px, ${e.clientY - 2.5}px)`;
+        ring.style.transform = `translate(${e.clientX - 19}px, ${e.clientY - 19}px)`;
     });
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-        if (window.scrollY > 50) nav.style.background = 'rgba(5, 5, 10, 0.95)';
-        else nav.style.background = 'rgba(5, 5, 10, 0.7)';
-    });
-
-    // Smooth anchor scroll
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
